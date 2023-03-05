@@ -1,6 +1,8 @@
 package nl.ilovecoding.wiremocktestcontainers;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -18,6 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Testcontainers
 class FetchUserIT {
+
+    Logger logger = LoggerFactory.getLogger(FetchUserIT.class);
 
     private final String path = Paths.get("src", "main", "resources", "wiremock").toFile().getAbsolutePath();
     @Container
@@ -38,6 +42,7 @@ class FetchUserIT {
         HttpResponse<String> response = fetchUser.execute();
 
         assertEquals(200, response.statusCode());
+        logger.info("The body is {}",response.body());
         assertThat(response.body(), containsString("george.bluth@reqres.in"));
 
 
