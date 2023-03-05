@@ -24,3 +24,6 @@ To run the test use ...
 ```
 mvn verify
 ```
+## Social media
+There is a video available demonstrating this project on Youtube
+[https://www.youtube.com/watch?v=iQ-2GbZ7pZE](https://www.youtube.com/watch?v=iQ-2GbZ7pZE)
