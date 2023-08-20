@@ -1,0 +1,27 @@
+
+{
+  "request": {
+    "method": "POST",
+    "urlPattern": "/api/soap",
+
+    "bodyPatterns": [
+      {
+        "matchesXPath": "/soapenv:Envelope/soapenv:Header/ns1:RequestHeader/ns1:networkCode[text()='888888']",
+        "xPathNamespaces" : {
+          "soapenv": "http://schemas.xmlsoap.org/soap/envelope/",
+          "ns1": "https://www.google.com/apis/ads/publisher/v202305"
+
+        }
+      },
+
+      {
+        "matchesXPath": "//query[text()='WHERE']"
+
+      }
+
+    ]
+  },
+  "response": {
+    "status": 200
+  }
+}
